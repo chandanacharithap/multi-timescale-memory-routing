@@ -1,0 +1,103 @@
+We study memory-operation routing for language models: when should a system retrieve, write to external memory, perform fast test-time adaptation, or consolidate knowledge more durably? Existing work addresses these operations separately; we provide a unified control objective, routing policy, and evaluation protocol.
+I would require all four of these in the paper:
+a formal objective that trades off answer quality, latency, write cost, and forgetting risk,
+a router that can choose among at least those four operations,
+a theorem or regret-style guarantee showing when one action dominates another, and
+cross-benchmark evidence that the unified router beats “always retrieve,” adaptive-retrieval-only, and memory-only baselines. Without that, reviewers will likely say it is just a recombination of existing memory papers.
+steps:
+ 1) A real end-to-end routing experiment
+This is the non-negotiable core. You need to implement the controller that chooses among at least four actions:
+use parametric knowledge only
+retrieve external evidence
+write/update external memory
+perform a fast-weight or test-time adaptation step
+This is what makes your paper different from Self-RAG, CRAG, or SR-RAG, which mainly focus on retrieval selection or corrective retrieval, not the full multi-operation routing problem.
+2) Multi-benchmark evaluation across different memory regimes
+Do not test on one benchmark only. Your claim is about deciding how to use memory, so you need datasets that stress different failure modes.
+A strong benchmark suite would be:
+General factual QA: Natural Questions, TriviaQA
+Long-tail / parametric-vs-retrieval tradeoff: PopQA
+Multi-hop retrieval and reasoning: HotpotQA, 2WikiMultiHopQA, MuSiQue
+Long-term conversational memory: LongMemEval, LoCoMo
+Knowledge freshness / changing world: FreshQA or a similar time-sensitive QA set
+High-stakes domain QA: FinanceBench, and optionally LegalBench
+This mix is defensible because recent RAG and routing papers commonly evaluate on general QA plus multi-hop QA, while LongMemEval and LoCoMo test memory persistence, and FinanceBench/LegalBench test whether the method survives in realistic evidence-heavy domains.
+3) Operation-level memory evaluation
+Your paper is about choosing among memory operations, so answer-level accuracy alone is not enough. You need to measure whether each operation itself behaves well.
+At minimum, measure:
+retrieval precision / recall
+memory write precision
+memory update correctness
+retrieval-to-answer grounding
+contradiction/conflict rate in stored memory
+stale-memory usage rate
+abstention when confidence is low
+This is important because newer work like HaluMem argues that end-to-end QA scores hide where memory systems actually fail, and it breaks evaluation into extraction, updating, and QA stages. LongMemEval also explicitly includes knowledge updates and abstention, which is highly relevant to your routing claim.
+4) Streaming knowledge-update experiment
+This is where your paper can become genuinely strong.
+Create a time-ordered stream:
+give the model a sequence of facts/documents/interactions
+query it intermittently
+introduce updates, corrections, and conflicts
+force the router to decide: retrieve again, write to memory, do fast adaptation, or consolidate into longer-term parameters
+Then evaluate:
+forward transfer on new knowledge
+backward transfer / forgetting on old knowledge
+update latency
+stale-answer rate after knowledge changes
+conflict resolution accuracy
+performance as the stream grows
+This matters because surveys on knowledge expansion explicitly frame retrieval, continual learning, and model editing as complementary adaptation strategies, and MemoryBench is pushing toward evaluating continual improvement under service-time feedback rather than only long-context reading.
+5) Cost-quality frontier
+Your method will be much more convincing if it shows not only better accuracy, but also better decision efficiency.
+You should report:
+answer quality
+retrieval calls per query
+memory writes per query
+fast-weight update frequency
+inference latency
+token cost / API cost
+compute overhead
+This is especially important because adaptive retrieval papers already show gains in both performance and cost by retrieving selectively rather than always. SR-RAG reports fewer retrievals with better performance, and the Adaptive Retrieval / PopQA line also emphasizes cost reduction.
+6) Strong baselines
+Your method will not look publishable unless it beats meaningful baselines. You should compare against:
+No retrieval / parametric-only
+Always retrieve
+Adaptive retrieval from the PopQA line
+Self-RAG
+CRAG
+SR-RAG
+External memory only without test-time adaptation
+Fast adaptation only without retrieval or durable memory
+An oracle router that knows the correct operation and gives an upper bound
+Without this, reviewers will say you are comparing against straw men.
+7) Ablation studies
+These are mandatory.
+You need to remove each major component one at a time:
+no external retrieval
+no external memory write
+no fast-weight update
+no durable consolidation
+no cost penalty
+no uncertainty/confidence gating
+no retrieval-quality estimator
+no conflict-resolution rule
+The paper should show which piece is responsible for which gain. Reviewers heavily expect this in systems papers.
+8) Robustness under noisy retrieval and conflicting updates
+This is where many methods break. CRAG exists precisely because retrieval can be weak or wrong. You should intentionally corrupt the pipeline:
+inject irrelevant retrieved documents
+inject contradictory memory entries
+vary document freshness
+vary retriever recall
+vary update accuracy
+Then test whether the router learns not to over-trust bad retrieval or bad memory. That directly matches your human-like intuition: when data is poor, do not just keep retrieving blindly.
+9) Manual error audit
+You do not necessarily need human subjects, but you do need human inspection of outputs.
+At minimum, manually audit 100–200 examples across failure categories:
+retrieved but still wrong
+should have retrieved but did not
+should have updated memory but kept stale memory
+over-updated and forgot old knowledge
+unnecessary expensive adaptation
+contradictory memory write
+FinanceBench manually reviewed model answers, and memory benchmarks rely heavily on human verification and curation. For your paper, a careful qualitative audit will make the story much stronger.
