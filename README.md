@@ -17,9 +17,9 @@ The main boundary result is regime-sensitive rather than uniformly positive:
 - volatile public changing-answer and propagation-heavy regimes are more retrieval-dominant
 - delayed-utility calibration partially repairs the public failure mode without changing the action inventory
 
-## Manuscript
+## Repository Scope
 
-The public repository does not ship manuscript files. It focuses on code, reproducibility notes, and lightweight release documentation.
+This public repository focuses on code, reproducibility notes, and lightweight release documentation.
 
 ## Install
 

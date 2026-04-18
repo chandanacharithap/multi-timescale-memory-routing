@@ -38,7 +38,3 @@ python -m multitimescale_memory --benchmark demo --mode router
 3. Open a GitHub Release for that tag.
 4. Attach the results-lite zip.
 5. Update any final release notes or archival metadata after the release is live.
-
-## Important Note
-
-The anonymous TMLR manuscript should remain free of direct GitHub or release links even after the named public GitHub materials are published.
