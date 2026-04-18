@@ -11,7 +11,6 @@ This checklist is for the first public GitHub-first release of the project.
 - `LICENSE`
 - `CITATION.cff`
 - lightweight docs under `docs/`
-- public paper files under `docs/paper/`
 - manuscript provenance sources under `paper/`
 
 ## Keep Out Of Git
@@ -26,14 +25,11 @@ This checklist is for the first public GitHub-first release of the project.
 
 ## Release Assets
 
-- `paper-v1.0.0-paper.pdf`
-- `paper-v1.0.0-manuscript.docx`
 - `paper-v1.0.0-results-lite.zip`
 
 ## Before Tagging
 
 - confirm the README links resolve
-- confirm `docs/paper/paper.pdf` and `docs/paper/paper.docx` match
 - run `python -m multitimescale_memory --help`
 - run `pytest tests/test_mvp.py`
 - build `paper-v1.0.0-results-lite.zip`
@@ -45,5 +41,5 @@ This checklist is for the first public GitHub-first release of the project.
 2. Merge the release branch into `main`.
 3. Push `main` to GitHub.
 4. Create the tag `paper-v1.0.0`.
-5. Create a GitHub Release and attach the PDF, Word manuscript, and results-lite zip.
+5. Create a GitHub Release and attach the results-lite zip.
 6. Update release notes with any final release URL or DOI once public.

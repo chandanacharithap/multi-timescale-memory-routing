@@ -1,14 +1,10 @@
 # Reproducibility Notes
 
-This repository is the public code surface for the project. It is intentionally lighter than the full internal research workspace: code, tests, scripts, public documentation, and the public paper stay in git, while heavy raw benchmark trees and large frozen artifact bundles are kept out of git history.
+This repository is the public code surface for the project. It is intentionally lighter than the full internal research workspace: code, tests, scripts, and public documentation stay in git, while heavy raw benchmark trees and large frozen artifact bundles are kept out of git history.
 
 ## Public Reproducibility Surfaces
 
-- `docs/paper/paper.pdf`: canonical reader version of the public manuscript
-- `docs/paper/paper.docx`: editable manuscript source for the same public release
 - Planned GitHub Release assets for the first public tag:
-  - `paper-v1.0.0-paper.pdf`
-  - `paper-v1.0.0-manuscript.docx`
   - `paper-v1.0.0-results-lite.zip`
 
 Once the GitHub Release is published, the results-lite asset will be the public frozen evidence bundle for this GitHub-first release. It contains the curated manifests, aggregate tables, run rows, significance/bootstrap summaries, audit summaries, and reliability notes needed to inspect the paper’s headline claims without shipping the full raw artifact tree in git.
@@ -65,6 +61,6 @@ This creates a small GitHub Release asset zip with the curated frozen summaries/
 
 ## Notes
 
-- The public GitHub release is code-first and PDF-first, not LaTeX-package-first.
+- The public GitHub release is code-first, not LaTeX-package-first.
 - The LaTeX tree remains in the repository as secondary provenance.
 - Large frozen bundles and raw benchmark inputs should be attached as release assets or archived later, not committed into git history.

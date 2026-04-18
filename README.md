@@ -17,14 +17,9 @@ The main boundary result is regime-sensitive rather than uniformly positive:
 - volatile public changing-answer and propagation-heavy regimes are more retrieval-dominant
 - delayed-utility calibration partially repairs the public failure mode without changing the action inventory
 
-## Paper
+## Paper Sources
 
-The reader-facing paper lives in [docs/paper](docs/paper/README.md).
-
-- Canonical reader artifact: `docs/paper/paper.pdf`
-- Editable source for the named public manuscript: `docs/paper/paper.docx`
-
-The LaTeX manuscript tree remains in `paper/` as secondary provenance, but the public reading path for this GitHub release is the PDF and Word manuscript in `docs/paper/`.
+The repository retains manuscript source material under `paper/` as provenance for the research project, but it does not ship a reader-facing PDF or Word manuscript in the public repo.
 
 ## Install
 
@@ -91,10 +86,8 @@ See:
 - [docs/public_archive_release.md](docs/public_archive_release.md)
 - [docs/github_release_checklist.md](docs/github_release_checklist.md)
 
-Once the first GitHub Release is published, the release asset set will be:
+Once the first GitHub Release is published, the release asset set may include:
 
-- `paper-v1.0.0-paper.pdf`
-- `paper-v1.0.0-manuscript.docx`
 - `paper-v1.0.0-results-lite.zip`
 
 ## Repository Layout
@@ -102,9 +95,9 @@ Once the first GitHub Release is published, the release asset set will be:
 - `multitimescale_memory/`: routing, memory, retrieval, benchmark, and reporting code
 - `tests/`: regression and benchmark-shape tests
 - `scripts/`: export, packaging, and campaign helpers
-- `docs/`: public-facing paper and reproducibility docs
+- `docs/`: public-facing reproducibility and release docs
 - `paper/`: internal and provenance manuscript sources
 
 ## Citation
 
-Citation metadata is provided in [CITATION.cff](CITATION.cff). GitHub’s citation panel should point readers to the repository, while the PDF manuscript remains the primary reader-facing paper artifact.
+Citation metadata is provided in [CITATION.cff](CITATION.cff). GitHub’s citation panel should point readers to the repository.

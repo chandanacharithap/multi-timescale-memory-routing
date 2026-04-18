@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the public manuscript and repository metadata below. The first public GitHub release is planned under the tag paper-v1.0.0; a DOI may be added later."
+message: "If you use this repository, please cite the repository metadata below. A DOI may be added later."
 title: "Multi-Timescale Memory Routing for Language Models: Regime Boundaries and Delayed-Utility Calibration"
 type: software
 authors:
@@ -18,13 +18,3 @@ keywords:
   - model editing
   - freshness evaluation
   - knowledge routing
-preferred-citation:
-  type: article
-  title: "Multi-Timescale Memory Routing for Language Models: Regime Boundaries and Delayed-Utility Calibration"
-  authors:
-    - family-names: Peddinti
-      given-names: Chandana Charitha
-    - family-names: Barri
-      given-names: Hema Raju
-  status: preprint
-  url: "https://github.com/chandanacharithap/multi-timescale-memory-routing"

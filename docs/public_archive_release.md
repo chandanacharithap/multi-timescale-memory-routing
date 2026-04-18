@@ -12,23 +12,18 @@ This project now targets a GitHub-first public release rather than a LaTeX-packa
 
 The first release is expected to attach:
 
-- `paper-v1.0.0-paper.pdf`
-- `paper-v1.0.0-manuscript.docx`
 - `paper-v1.0.0-results-lite.zip`
 
 ## Release Preparation
 
 1. Confirm the repo is lean and code-first.
-2. Export the current public manuscript to:
-   - `docs/paper/paper.docx`
-   - `docs/paper/paper.pdf`
-3. Build the lightweight frozen-results bundle:
+2. Build the lightweight frozen-results bundle:
 
 ```bash
 python scripts/build_results_lite_release.py
 ```
 
-4. Run the public checks:
+3. Run the public checks:
 
 ```bash
 python -m multitimescale_memory --help
@@ -41,7 +36,7 @@ python -m multitimescale_memory --benchmark demo --mode router
 1. Push the cleaned `main` branch to GitHub.
 2. Create the tag `paper-v1.0.0`.
 3. Open a GitHub Release for that tag.
-4. Attach the PDF, Word manuscript, and results-lite zip.
+4. Attach the results-lite zip.
 5. Update any final release notes or archival metadata after the release is live.
 
 ## Important Note
