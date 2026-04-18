@@ -1,6 +1,6 @@
 # Multi-Timescale Memory Routing for Language Models
 
-This repository contains the public code and lightweight release documentation for a multi-timescale controller that routes between parametric answering, retrieval, reusable memory, temporary adaptation, and durable consolidation.
+This repository contains the public code and lightweight reproducibility documentation for a multi-timescale controller that routes between parametric answering, retrieval, reusable memory, temporary adaptation, and durable consolidation.
 
 ## What This Repository Shows
 
@@ -19,7 +19,7 @@ The main boundary result is regime-sensitive rather than uniformly positive:
 
 ## Repository Scope
 
-This public repository focuses on code, reproducibility notes, and lightweight release documentation.
+This public repository focuses on code and reproducibility notes. arXiv submission materials are managed separately and are not part of this repo.
 
 ## Install
 
@@ -72,30 +72,22 @@ python -m multitimescale_memory \
   --audit-limit 50
 ```
 
-## Reproducibility And Release Assets
+## Reproducibility
 
-This GitHub repo is intentionally lean and code-first:
+This repository is intentionally lean and code-first:
 
 - code, tests, scripts, and public documentation stay in git
 - heavy raw benchmark trees and large frozen artifact bundles stay out of git history
-- public frozen summaries and statistics are shipped as release assets instead
+- public frozen summaries and statistics can be prepared separately when needed
 
-See:
-
-- [docs/reproducibility.md](docs/reproducibility.md)
-- [docs/public_archive_release.md](docs/public_archive_release.md)
-- [docs/github_release_checklist.md](docs/github_release_checklist.md)
-
-Once the first GitHub Release is published, the release asset set may include:
-
-- `paper-v1.0.0-results-lite.zip`
+See [docs/reproducibility.md](docs/reproducibility.md).
 
 ## Repository Layout
 
 - `multitimescale_memory/`: routing, memory, retrieval, benchmark, and reporting code
 - `tests/`: regression and benchmark-shape tests
 - `scripts/`: export, packaging, and campaign helpers
-- `docs/`: public-facing reproducibility and release docs
+- `docs/`: public-facing reproducibility docs
 
 ## Citation
 

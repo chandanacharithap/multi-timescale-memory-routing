@@ -1,13 +1,6 @@
 # Reproducibility Notes
 
-This repository is the public code surface for the project. It is intentionally lighter than the full internal research workspace: code, tests, scripts, and public documentation stay in git, while heavy raw benchmark trees and large frozen artifact bundles are kept out of git history.
-
-## Public Reproducibility Surfaces
-
-- Planned GitHub Release assets for the first public tag:
-  - `paper-v1.0.0-results-lite.zip`
-
-Once the GitHub Release is published, the results-lite asset will be the public frozen evidence bundle for this GitHub-first release. It contains the curated manifests, aggregate tables, run rows, significance/bootstrap summaries, audit summaries, and reliability notes needed to inspect the paper’s headline claims without shipping the full raw artifact tree in git.
+This repository is the public code surface for the project. It is intentionally lighter than the full internal research workspace: code, tests, scripts, and public documentation stay in git, while heavy raw benchmark trees and large frozen artifact bundles stay out of git history.
 
 ## Install And Run
 
@@ -34,7 +27,7 @@ pytest tests/test_mvp.py
 python -m multitimescale_memory --benchmark demo --mode router
 ```
 
-## Public Release Assets Versus Heavy Local State
+## Public Repo Versus Heavy Local State
 
 Kept in git:
 
@@ -42,24 +35,13 @@ Kept in git:
 - tests under `tests/`
 - public docs under `docs/`
 
-Kept out of git and shipped separately when needed:
+Kept out of git and managed separately when needed:
 
 - heavy raw benchmark files under `data/`
 - large frozen artifact trees under `artifacts/`
 - generated delivery/output directories
 
-## Building The Lightweight Results Bundle
-
-Use:
-
-```bash
-python scripts/build_results_lite_release.py
-```
-
-This creates a small GitHub Release asset zip with the curated frozen summaries/statistics needed for public inspection. The script intentionally excludes raw heavy traces, caches, environments, and large benchmark trees.
-
 ## Notes
 
-- The public GitHub release is code-first, not LaTeX-package-first.
-- The LaTeX tree remains in the repository as secondary provenance.
-- Large frozen bundles and raw benchmark inputs should be attached as release assets or archived later, not committed into git history.
+- This repo is code-first and is not the arXiv submission package.
+- Large frozen bundles and raw benchmark inputs should be managed separately or archived later, not committed into git history.
