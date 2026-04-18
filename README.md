@@ -91,7 +91,7 @@ See:
 - [docs/public_archive_release.md](docs/public_archive_release.md)
 - [docs/github_release_checklist.md](docs/github_release_checklist.md)
 
-The planned GitHub release asset set is:
+Once the first GitHub Release is published, the release asset set will be:
 
 - `paper-v1.0.0-paper.pdf`
 - `paper-v1.0.0-manuscript.docx`

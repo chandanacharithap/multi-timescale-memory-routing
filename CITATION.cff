@@ -9,8 +9,8 @@ authors:
   - family-names: Barri
     given-names: Hema Raju
     affiliation: Johns Hopkins University
-repository-code: "https://github.com/chandanacharitha/multi-timescale-memory-routing"
-url: "https://github.com/chandanacharitha/multi-timescale-memory-routing"
+repository-code: "https://github.com/chandanacharithap/multi-timescale-memory-routing"
+url: "https://github.com/chandanacharithap/multi-timescale-memory-routing"
 license: MIT
 keywords:
   - retrieval-augmented generation
@@ -27,4 +27,4 @@ preferred-citation:
     - family-names: Barri
       given-names: Hema Raju
   status: preprint
-  url: "https://github.com/chandanacharitha/multi-timescale-memory-routing"
+  url: "https://github.com/chandanacharithap/multi-timescale-memory-routing"

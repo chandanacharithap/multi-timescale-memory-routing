@@ -4,13 +4,13 @@ This project now targets a GitHub-first public release rather than a LaTeX-packa
 
 ## Public Home
 
-- GitHub repository: `https://github.com/chandanacharitha/multi-timescale-memory-routing`
+- GitHub repository: `https://github.com/chandanacharithap/multi-timescale-memory-routing`
 - Planned first public tag: `paper-v1.0.0`
 - Zenodo: optional after the first public GitHub release
 
 ## Public Release Assets
 
-The first release should attach:
+The first release is expected to attach:
 
 - `paper-v1.0.0-paper.pdf`
 - `paper-v1.0.0-manuscript.docx`

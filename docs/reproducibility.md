@@ -6,12 +6,12 @@ This repository is the public code surface for the project. It is intentionally 
 
 - `docs/paper/paper.pdf`: canonical reader version of the public manuscript
 - `docs/paper/paper.docx`: editable manuscript source for the same public release
-- GitHub Release assets:
+- Planned GitHub Release assets for the first public tag:
   - `paper-v1.0.0-paper.pdf`
   - `paper-v1.0.0-manuscript.docx`
   - `paper-v1.0.0-results-lite.zip`
 
-The results-lite asset is the public frozen evidence bundle for this GitHub-first release. It contains the curated manifests, aggregate tables, run rows, significance/bootstrap summaries, audit summaries, and reliability notes needed to inspect the paper’s headline claims without shipping the full raw artifact tree in git.
+Once the GitHub Release is published, the results-lite asset will be the public frozen evidence bundle for this GitHub-first release. It contains the curated manifests, aggregate tables, run rows, significance/bootstrap summaries, audit summaries, and reliability notes needed to inspect the paper’s headline claims without shipping the full raw artifact tree in git.
 
 ## Install And Run
 
