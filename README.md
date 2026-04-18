@@ -17,9 +17,9 @@ The main boundary result is regime-sensitive rather than uniformly positive:
 - volatile public changing-answer and propagation-heavy regimes are more retrieval-dominant
 - delayed-utility calibration partially repairs the public failure mode without changing the action inventory
 
-## Paper Sources
+## Manuscript
 
-The repository retains manuscript source material under `paper/` as provenance for the research project, but it does not ship a reader-facing PDF or Word manuscript in the public repo.
+The public repository does not ship manuscript files. It focuses on code, reproducibility notes, and lightweight release documentation.
 
 ## Install
 
@@ -96,7 +96,6 @@ Once the first GitHub Release is published, the release asset set may include:
 - `tests/`: regression and benchmark-shape tests
 - `scripts/`: export, packaging, and campaign helpers
 - `docs/`: public-facing reproducibility and release docs
-- `paper/`: internal and provenance manuscript sources
 
 ## Citation
 

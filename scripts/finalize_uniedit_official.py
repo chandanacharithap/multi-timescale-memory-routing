@@ -10,14 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 INTEGRITY_PATHS = [
-    "paper/arxiv",
-    "paper/tmlr",
-    "paper/shared/claims_to_artifacts.md",
-    "paper/shared/generated/README.md",
-    "paper/shared/artifact_availability.tex",
     "docs/journal_reproducibility.md",
-    "deliverables/PUBLICATION_STATUS.md",
-    "deliverables/README.md",
     "paper_run_manifest_index.json",
 ]
 

@@ -11,7 +11,6 @@ This checklist is for the first public GitHub-first release of the project.
 - `LICENSE`
 - `CITATION.cff`
 - lightweight docs under `docs/`
-- manuscript provenance sources under `paper/`
 
 ## Keep Out Of Git
 

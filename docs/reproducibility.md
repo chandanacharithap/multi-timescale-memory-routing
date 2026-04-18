@@ -41,7 +41,6 @@ Kept in git:
 - code under `multitimescale_memory/`
 - tests under `tests/`
 - public docs under `docs/`
-- manuscript provenance sources under `paper/`
 
 Kept out of git and shipped separately when needed:
 
