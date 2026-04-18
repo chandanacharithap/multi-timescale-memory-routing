@@ -31,6 +31,7 @@ class PatchBank:
         answer: str,
         creation_trigger: str,
         acceptance_score: float,
+        activation_policy: dict | None = None,
     ) -> PatchRecord:
         self._counter += 1
         patch_id = f"patch-{self._counter}"
@@ -43,7 +44,7 @@ class PatchBank:
             acceptance_score=acceptance_score,
             durability_status="temporary",
             rollback_metadata={"rollback_ready": True},
-            activation_policy={"scope": scope_key},
+            activation_policy=activation_policy or {"scope": scope_key},
             subject=subject,
             relation=relation,
             temporary=True,
@@ -51,8 +52,18 @@ class PatchBank:
         self._temporary[scope_key] = patch
         return patch
 
-    def get_temporary(self, subject: str, relation: str) -> PatchRecord | None:
-        return self._temporary.get(self.scope_key(subject, relation))
+    def get_temporary(self, subject: str, relation: str, current_timestamp: int | None = None) -> PatchRecord | None:
+        scope_key = self.scope_key(subject, relation)
+        patch = self._temporary.get(scope_key)
+        if patch is None:
+            return None
+        if current_timestamp is None:
+            return patch
+        expires_at = patch.activation_policy.get("expires_at")
+        if expires_at is not None and current_timestamp > int(expires_at):
+            self._temporary.pop(scope_key, None)
+            return None
+        return patch
 
     def get_durable(self, subject: str, relation: str) -> PatchRecord | None:
         return self._durable.get(self.scope_key(subject, relation))

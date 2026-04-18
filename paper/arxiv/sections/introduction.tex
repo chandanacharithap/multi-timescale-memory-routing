@@ -1,0 +1,17 @@
+\section{Introduction}
+
+Language-model systems can answer from parameters, retrieve external evidence, cache reusable facts, or update themselves temporarily or durably. Existing work usually studies retrieval selection \citep{asai2024selfrag,yan2024crag}, editing and memory mechanisms \citep{wang2024wise,yu2023melo}, or broad surveys of knowledge editing \citep{zhang2024keStudy} in isolation. We instead study a controller problem: when should one policy choose among parametric answering, retrieval, memory reads, memory writes, temporary adaptation, and guarded durable consolidation under a single objective?
+
+The answer is not a universal-win story. Our frozen results show one clear positive regime and several clear negative ones. On PopQA recurring-memory \citep{mallen2022trust}, delayed utility is genuinely useful: the full router matches retrieval quality while cutting retrieval calls substantially, and removing delayed utility collapses performance. On public FreshQA-style changing-answer evaluation derived from FreshLLMs weekly releases \citep{vu2024freshllms}, retrieval dominates across all four models, and suppressing delayed utility is more reliable than softly calibrating it. On MQuAKE \citep{zhong2023mquake}, retrieval again dominates, and the gap persists on direct edits, single-hop probes, and multi-hop consequences. On UniEdit \citep{chen2025uniedit}, nearly every method is already at ceiling, so the benchmark serves mainly as a sanity check rather than a separator.
+
+Those results support a sharper claim than the project originally targeted: delayed utility helps in stable recurring-memory settings, but hurts in public changing-answer and edit-propagation settings; in those regimes, retrieval-dominant behavior wins, and removing delayed utility is more reliable than softly calibrating it.
+
+The public benchmark trust story is also intentionally modest. Our manual FreshQA audit found 24 clean cases, 76 suspect cases, and no direct leakage-risk cases. That rules out a simple leakage explanation for the retrieval-dominant public result, but it does not fully clear the benchmark. Appendix~A includes a small deterministic controlled-update diagnostic that is consistent with the same boundary, but the headline evidence in the paper comes from the frozen benchmark surface.
+
+The paper makes four contributions:
+\begin{itemize}[leftmargin=1.5em]
+\item a unified six-action routing formulation over parameters, retrieval, reusable memory, temporary adaptation, and guarded durable consolidation;
+\item a clean positive result on stable recurring-memory PopQA, where delayed utility preserves quality while reducing repeated retrieval;
+\item a cross-benchmark boundary result showing that retrieval dominates public changing-answer and propagation-heavy regimes, with soft calibration offering only limited repair relative to outright suppression of delayed utility;
+\item a frozen evidence package spanning FreshQA public main and sequence runs, MQuAKE, UniEdit, a manual FreshQA audit, and benchmark reliability notes.
+\end{itemize}

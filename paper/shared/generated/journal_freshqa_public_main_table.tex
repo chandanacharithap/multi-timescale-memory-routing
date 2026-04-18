@@ -1,0 +1,14 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Model & Mode & Quality & 95\% CI & Retrieve & Adapt & Stale \\
+\midrule
+flan-t5-base & always\_retrieve & 1.000 & [1.000, 1.000] & 192.0 & 0.0 & 0.000 \\
+flan-t5-base & router & 0.582 & [0.442, 0.721] & 102.0 & 32.3 & 0.009 \\
+flan-t5-base & router\_calibrated & 0.842 & [0.811, 0.873] & 155.7 & 4.0 & 0.000 \\
+flan-t5-base & router\_no\_v\_future & 0.969 & [0.969, 0.969] & 181.0 & 4.0 & 0.000 \\
+flan-t5-small & always\_retrieve & 1.000 & [1.000, 1.000] & 192.0 & 0.0 & 0.000 \\
+flan-t5-small & router & 0.564 & [0.409, 0.719] & 101.7 & 32.0 & 0.003 \\
+flan-t5-small & router\_calibrated & 0.844 & [0.819, 0.869] & 156.0 & 4.0 & 0.000 \\
+flan-t5-small & router\_no\_v\_future & 0.964 & [0.964, 0.964] & 181.0 & 4.0 & 0.000 \\
+\bottomrule
+\end{tabular}

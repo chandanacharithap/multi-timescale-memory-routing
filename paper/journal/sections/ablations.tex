@@ -1,0 +1,10 @@
+\section{Ablations, Audits, And What Now Looks Solid}
+
+\paragraph{What now looks strong.}
+Three parts of the project are now externally sturdier than the original preprint. First, the recurring-memory claim generalizes across seeds and two backbones on PopQA. Second, the bundled six-action result remains the clearest positive updated-knowledge demonstration. Third, the public FreshQA-derived benchmark gives a concrete, reproducible failure analysis rather than merely weakening the paper: delayed utility is the main miscalibrated component on the public track.
+
+\paragraph{What the public track changes.}
+The public robustness track forces us to narrow the journal claim. It does not support saying that the full controller already dominates retrieval on public changing-answer benchmarks. What it does support is a sharper and more honest statement: routing over multiple substrates is useful, but delayed utility must be calibrated differently across regimes. The calibrated router is therefore the new hero model for the public track: it materially improves over the full router, preserves the positive PopQA regime, and still leaves a clear residual gap to retrieval and to the no-$V_{\text{future}}$ bound.
+
+\paragraph{Manual audits.}
+The frozen PopQA audits remain important because they show that the final recurring-memory result is not driven by unresolved routing pathologies on non-recurring cases. The bundled freshness audit still localizes the remaining failures to volatile-update handling. The public FreshQA-derived results now add both aggregate and manual audit evidence: in the paired 100-example public audit, `74\%` of failures are labeled \emph{delayed-utility overshoot} and `26\%` are labeled \emph{retrieval was correctly dominant}. That is the cleanest evidence in the paper that the public-track weakness is a calibration issue rather than a general failure of memory routing.

@@ -1,0 +1,55 @@
+\section{PopQA: Recurring-Memory Routing}
+
+PopQA supports the first half of the paper. The question is whether the controller can reduce repeated retrieval on recurring queries without harming quality.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Mode & Quality & Latency & Retrieval & Mem. Read & Mem. Write & Adapt \\
+\midrule
+param\_only & 0.064 & 0.033 & 0 & 0 & 0 & 0 \\
+always\_retrieve & 0.178 & 0.360 & 500 & 0 & 0 & 0 \\
+retrieve\_gate & 0.178 & 0.364 & 500 & 0 & 0 & 0 \\
+router & 0.178 & 0.334 & 267 & 327 & 156 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Frozen PopQA post-fix main result from \texttt{artifacts/popqa\_500/post\_fix/overall\_comparison\_table.md}.}
+\end{table}
+
+The final PopQA result is intentionally narrow but clean. After a conservative non-recurring guardrail fix, the router matches retrieval-level quality overall and preserves recurring-case quality while reducing repeated retrieval on recurring cases. The key recurring statistics are:
+\begin{itemize}[leftmargin=1.5em]
+\item recurring quality remains at 0.181,
+\item recurring retrieval falls from 1.000 for retrieval-only to 0.406,
+\item recurring memory reads are substantial at 0.834,
+\item recurring memory writes remain active at 0.398.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Variant & Overall & Recurring & Non-Recurring & Rec. Ret. & Rec. Read & Rec. Write \\
+\midrule
+router\_full & 0.178 & 0.181 & 0.167 & 0.406 & 0.834 & 0.398 \\
+no read\_memory & 0.132 & 0.122 & 0.167 & 0.444 & 0.398 & 0.398 \\
+no write\_memory & 0.078 & 0.054 & 0.167 & 0.010 & 0.000 & 0.000 \\
+no $V_{\text{future}}$ & 0.082 & 0.059 & 0.167 & 0.059 & 0.082 & 0.048 \\
+\bottomrule
+\end{tabular}
+\caption{Frozen PopQA ablations from \texttt{artifacts/popqa\_500/post\_fix/ablation\_table.md}.}
+\end{table}
+
+These ablations matter. The recurring-memory gain depends on \texttt{READ\_MEMORY}, \texttt{WRITE\_MEMORY}, and future-value-aware routing. The manual PopQA audit further shows that the pre-fix non-recurring failures were mostly avoidable routing mistakes, whereas the post-fix residual failures are mostly true retrieval/evidence misses.
+
+\begin{figure}[t]
+\centering
+\fbox{\parbox{0.86\linewidth}{
+\textbf{Artifact-backed figure placeholder.}\\
+Replace with converted asset from:\\
+\texttt{artifacts/popqa\_500/post\_fix/retrieval\_calls\_reduction.svg}
+}}
+\caption{PopQA recurring retrieval reduction figure placeholder.}
+\end{figure}

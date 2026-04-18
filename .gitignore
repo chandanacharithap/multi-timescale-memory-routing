@@ -1,0 +1,26 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.venv/
+.venv-prod/
+.venv-journal/
+*.egg-info/
+*.log
+logs/
+deliverables/
+artifacts/
+data/
+*.tmp
+*.bak
+~$*
+*.swp
+*.swo
+arxiv_preprint 9-2-2.docx
+DATASET_MANIFEST 2.md
+paper_run_manifest_index 2.json

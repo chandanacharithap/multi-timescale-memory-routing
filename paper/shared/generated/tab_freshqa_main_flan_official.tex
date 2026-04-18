@@ -1,0 +1,16 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Model & Policy & Quality & 95\% CI & Retrieve & Adapt & Stale \\
+\midrule
+FLAN-T5 Base & Retrieval only & 1.000 & [1.000, 1.000] & 796.0 & 0.0 & 0.000 \\
+FLAN-T5 Base & Retrieve gate & 0.132 & [0.132, 0.132] & 89.0 & 0.0 & 0.005 \\
+FLAN-T5 Base & Full router & 0.616 & [0.544, 0.687] & 448.6 & 69.8 & 0.002 \\
+FLAN-T5 Base & Calibrated router & 0.694 & [0.634, 0.754] & 528.4 & 18.0 & 0.001 \\
+FLAN-T5 Base & Router without delayed utility & 0.985 & [0.985, 0.985] & 740.0 & 4.0 & 0.000 \\
+FLAN-T5 Small & Retrieval only & 1.000 & [1.000, 1.000] & 796.0 & 0.0 & 0.000 \\
+FLAN-T5 Small & Retrieve gate & 0.134 & [0.134, 0.134] & 89.0 & 0.0 & 0.003 \\
+FLAN-T5 Small & Full router & 0.612 & [0.539, 0.684] & 448.6 & 69.8 & 0.001 \\
+FLAN-T5 Small & Calibrated router & 0.794 & [0.725, 0.863] & 612.4 & 29.4 & 0.000 \\
+FLAN-T5 Small & Router without delayed utility & 0.984 & [0.984, 0.984] & 739.0 & 4.0 & 0.000 \\
+\bottomrule
+\end{tabular}

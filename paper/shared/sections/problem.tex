@@ -1,0 +1,20 @@
+\section{Problem Formulation}
+
+Each benchmark row is converted to a timestamped episode that matches the implementation schema \texttt{EpisodeInput}. An episode stores the question, gold answer, dataset identifier, timestamp, subject, relation, domain, optional parametric answer and confidence, benchmark hints for recurrence/stability/volatility/contradiction, and a metadata map for regime-specific fields such as confirmation counts or stale-answer markers. When external evidence is available, the episode also carries a list of \texttt{SupportDoc} records; each support document stores a document id, text span, answer string, source name or URL, timestamp, trust score, and retrieval relevance score.
+
+The router chooses one action from:
+\begin{center}
+\texttt{PARAM\_ONLY}, \texttt{READ\_MEMORY}, \texttt{RETRIEVE}, \texttt{WRITE\_MEMORY}, \texttt{FAST\_ADAPT}, \texttt{CONSOLIDATE}.
+\end{center}
+
+The implemented reward has the form
+\[
+r_t = q_t - c_t - f_t + \beta V_{\text{future}}(x_t, a_t),
+\]
+where $q_t$ is exact-match answer quality, $c_t$ is the weighted operation cost, and $f_t$ is the forgetting penalty. In code, the cost term is
+\[
+c_t = 0.4 \ell_t + 0.8 n^{\text{retrieve}}_t + 0.7 n^{\text{write}}_t + 0.8 n^{\text{adapt}}_t + 1.1 n^{\text{consolidate}}_t,
+\]
+the forgetting term uses unit weight, and the delayed-utility coefficient is $\beta = 0.9$. The delayed-utility quantity $V_{\text{future}}(x_t, a_t)$ is a separate learned estimate of downstream reuse benefit; it is described concretely in Algorithm~\ref{tab:router-algorithm}.
+
+The design goal is practical rather than purely formal: use one routed interface and one reward function to compare operations that live on different time scales. \texttt{READ\_MEMORY} and \texttt{WRITE\_MEMORY} access reusable external memory, \texttt{FAST\_ADAPT} creates a reversible temporary patch, and \texttt{CONSOLIDATE} promotes a validated temporary patch into the durable bank. Keeping this action inventory fixed across benchmarks is what lets the paper compare stable recurrence, public answer changes, and propagation-heavy edits within one controller.

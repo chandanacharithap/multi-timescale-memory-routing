@@ -1,0 +1,19 @@
+\section{System And Controller}
+
+The system has three explicit knowledge substrates:
+\begin{itemize}[leftmargin=1.5em]
+\item frozen parametric knowledge from the base model,
+\item persistent external memory,
+\item a detachable patch bank for temporary and durable updates.
+\end{itemize}
+
+The controller is a contextual bandit with a learned future-value estimator. Action masks prevent obviously bad choices. On PopQA, these masks become conservative on weak-recurrence queries so that retrieval remains the fallback. On the freshness benchmark, the masks suppress durable consolidation on volatile or corrective updates and allow consolidation only after stable confirmations.
+
+\paragraph{Temporary adaptation.}
+The first freshness milestone keeps \texttt{FAST\_ADAPT} lightweight: it attaches a temporary patch with a bounded horizon rather than training a full adapter.
+
+\paragraph{Durable consolidation.}
+\texttt{CONSOLIDATE} promotes a validated temporary patch into the durable patch bank. This path is rare by design and is blocked after rollback.
+
+\paragraph{Rollback.}
+Correction episodes can invalidate a previously durable answer. The implementation explicitly records whether rollback was triggered, whether a durable patch was used, and whether forgetting probes remain correct afterward.

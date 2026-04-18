@@ -7,6 +7,15 @@ name = "multitimescale-memory-controller"
 version = "0.1.0"
 description = "Dependency-light MVP for a novelty-tightened multi-timescale memory controller."
 requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+hf = ["transformers>=4.40"]
+
+[project.scripts]
+multitimescale-memory = "multitimescale_memory.__main__:main"
 
 [tool.setuptools]
 packages = ["multitimescale_memory"]

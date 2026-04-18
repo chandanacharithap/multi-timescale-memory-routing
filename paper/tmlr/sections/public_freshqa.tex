@@ -1,0 +1,40 @@
+\section{FreshQA Public Main And Sequence: Volatile Public Boundary}
+
+The official FreshQA public runs are the paper's clearest boundary evidence. They evaluate the same controller on frozen public changing-answer data derived from weekly releases, once on a changed-question-heavy main slice and once on a sequence slice with repeated corrections and forgetting probes. Across all four official models, retrieval dominates.
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_freshqa_main_flan_official}
+\caption{Official FreshQA public main results on the primary FLAN matrix. Retrieval is perfect; calibration partially repairs the full router, but \texttt{router\_no\_v\_future} remains much closer to the retrieval ceiling.}
+\label{tab:freshqa-main}
+\end{table}
+
+On the public main slice, \texttt{always\_retrieve} is 1.000 on both FLAN backbones. The full router falls to 0.616 on FLAN-T5-Base and 0.612 on FLAN-T5-Small. Calibration helps on this slice, reaching 0.694 and 0.794, but \texttt{router\_no\_v\_future} is still much stronger at 0.985 and 0.984. The paired sign tests are decisive: retrieval beats the full router, the calibrated router, and \texttt{router\_no\_v\_future} on both FLAN models, while \texttt{router\_no\_v\_future} significantly outperforms both router variants.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\linewidth]{../shared/generated/word_assets/fig_public_main_calibration_curve.png}
+\caption{Official public-boundary comparison on the primary FLAN matrix. Retrieval is perfect on both FreshQA public slices, while \texttt{router\_no\_v\_future} stays much closer to that ceiling than the full or calibrated router.}
+\label{fig:public-best-mode}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_freshqa_sequence_flan_official}
+\caption{Official FreshQA public sequence results on the primary FLAN matrix. On repeated correction chains, suppressing delayed utility is again much safer than the full router, and soft calibration is inconsistent.}
+\label{tab:freshqa-sequence}
+\end{table}
+
+The sequence slice makes the boundary even clearer. Retrieval again stays at 1.000. The full router reaches 0.819 on FLAN-T5-Base and 0.802 on FLAN-T5-Small, while calibration is actually worse on both primary models at 0.725 and 0.724. \texttt{Router\_no\_v\_future} again stays much closer to retrieval at 0.984 and 0.982, and the corresponding sign tests show it significantly outperforming both router variants. Cross-family robustness in the appendix shows the same qualitative pattern on Qwen2.5-1.5B and SmolLM2.
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_public_audit_official}
+\caption{Official FreshQA manual audit summary. The audit found no direct leakage-risk cases, but many cases remain suspect, so the public trust story is bounded rather than fully cleared.}
+\label{tab:freshqa-audit}
+\end{table}
+
+The manual audit is important for interpretation. Among 100 audited cases, 24 were labeled clean, 76 were labeled suspect, and none were labeled direct leakage risk. That is enough to reject a simple leakage explanation for the retrieval-dominant result, but not enough to treat the benchmark as perfectly trust-cleared. The right conclusion is modest: public changing-answer evaluation is hard, retrieval is the safest policy in our current setup, and delayed utility should usually be suppressed rather than softly calibrated in this regime.

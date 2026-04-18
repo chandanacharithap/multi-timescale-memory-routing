@@ -1,0 +1,15 @@
+\section{Bundled Controlled Updates: Extra arXiv Context}
+
+The named arXiv paper retains one bundled deterministic controlled-update artifact as extra context. This benchmark is not part of the strict TMLR official surface, so we use it only to illustrate what the six-action controller can do when updates are stable, evidence visibility is perfectly controlled, and rollback is explicitly scripted.
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_freshness_bundled_official}
+\caption{Bundled controlled-update artifact. This table is supplementary arXiv-only context rather than part of the official TMLR benchmark surface.}
+\label{tab:freshness-main}
+\end{table}
+
+Within that controlled setting, the six-action router reaches 0.867 quality with a 0.133 stale-answer rate. Retrieval-only reaches only 0.133 quality, memory-only reaches 0.600, and fast-adapt-only reaches 0.800. The corresponding ablation bundle shows that removing temporary adaptation, consolidation, or delayed utility lowers quality to 0.667--0.733. Those numbers are useful because they show that the controller is not intrinsically incapable of coordinating retrieval, reusable memory, temporary adaptation, guarded consolidation, and rollback.
+
+We deliberately keep this section subordinate to the official external evidence. The bundled artifact sharpens the positive intuition for stable or controlled regimes, but it does not overturn the main public and propagation results that follow.

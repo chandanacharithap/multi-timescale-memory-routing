@@ -1,0 +1,19 @@
+\section{Reproducibility And Release Note}
+
+Both core experiments are frozen as artifact bundles:
+\begin{itemize}[leftmargin=1.5em]
+\item \texttt{artifacts/popqa\_500/}
+\item \texttt{artifacts/freshness\_v1/}
+\end{itemize}
+
+The reproducibility package includes:
+\begin{itemize}[leftmargin=1.5em]
+\item exported traces,
+\item frozen manifests,
+\item baseline and ablation tables,
+\item manual audits,
+\item benchmark protocol notes for the bundled freshness snapshot,
+\item exact CLI commands for regenerating the bundles.
+\end{itemize}
+
+The bundled freshness snapshot is documented in \texttt{docs/freshness\_snapshot\_protocol.md}. The full rerun commands and artifact conventions are documented in \texttt{docs/reproducibility.md}. The paper should be read together with those files.

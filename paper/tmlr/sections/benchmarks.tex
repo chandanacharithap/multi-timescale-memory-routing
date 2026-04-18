@@ -1,0 +1,38 @@
+\section{Benchmarks And Official Evidence Surface}
+
+This anonymous paper uses only the frozen official reportable surface listed under \texttt{tmlr\_official\_reportable} in \texttt{paper\_run\_manifest\_index.json}. Table~\ref{tab:benchmark-map} summarizes the benchmark set, and Table~\ref{tab:cross-benchmark-summary} previews the empirical law supported by the official runs.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\input{../shared/generated/tab_benchmark_map_tmlr}
+\caption{Official benchmark map for the TMLR submission. The main evidence surface covers stable recurrence, volatile public knowledge, propagation, and broad editing.}
+\label{tab:benchmark-map}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\input{../shared/generated/tab_cross_benchmark_summary_official}
+\caption{Cross-benchmark summary from the frozen official bundles. The important result is a boundary law for delayed utility, not broad router superiority.}
+\label{tab:cross-benchmark-summary}
+\end{table}
+
+The official practical model matrix is:
+\begin{itemize}[leftmargin=1.5em]
+\item \texttt{google/flan-t5-small}
+\item \texttt{google/flan-t5-base}
+\item \texttt{Qwen/Qwen2.5-1.5B-Instruct}
+\item \texttt{HuggingFaceTB/SmolLM2-360M-Instruct}
+\end{itemize}
+
+Main-paper tables use the FLAN matrix. Qwen2.5-1.5B and SmolLM2 provide cross-family robustness evidence in the appendix. Every official run uses seeds \texttt{0,1,2,3,4}. Main-table baselines are restricted to:
+\begin{itemize}[leftmargin=1.5em]
+\item \texttt{always\_retrieve}
+\item \texttt{retrieve\_gate} on FreshQA only
+\item \texttt{router}
+\item \texttt{router\_calibrated}
+\item \texttt{router\_no\_v\_future}
+\end{itemize}
+
+The support layer includes a 100-case manual FreshQA audit, an official statistics bundle with bootstrap, effect size, and paired sign-test summaries, and benchmark reliability notes for MQuAKE and UniEdit.

@@ -1,0 +1,12 @@
+\begin{tabular}{p{0.97\linewidth}}
+\toprule
+\textbf{1. Build features.} Compute the full feature vector $x_t$ from the current episode, world state, retrieval evidence, memory state, change-tracking metadata, and recent action history. \\
+\textbf{2. Compute regime masks.} Apply the benchmark-specific guardrails and mark each action in $\mathcal{A}$ as valid or invalid. \\
+\textbf{3. Score valid actions.} For each valid action $a$, compute $x_t^\top \theta_a + \alpha \sqrt{x_t^\top A_a^{-1} x_t} + \mathrm{prior}_a(x_t) + \lambda_e \hat V_a(x_t)$. \\
+\textbf{4. Select action.} Choose $a_t = \arg\max_{a \in \mathcal{A}_{\mathrm{valid}}} \mathrm{score}_t(a)$. \\
+\textbf{5. Execute action.} Run the corresponding parametric, retrieval, memory, or patch operation and collect the answer, evidence ids, touched state, and side effects. \\
+\textbf{6. Compute reward.} Evaluate answer quality, latency and operation cost, forgetting penalty, and delayed utility to obtain $r_t$. \\
+\textbf{7. Update estimators.} Set $A_{a_t} \leftarrow A_{a_t} + x_t x_t^\top$, $b_{a_t} \leftarrow b_{a_t} + r_t x_t$, recompute $\theta_{a_t}$, and update the action-specific future-value regressor with the observed next-three-episode utility. \\
+\textbf{8. Log trace.} Store the action mask, action scores, feature vector, reward breakdown, evidence ids, state mutations, and benchmark metrics for later aggregation. \\
+\bottomrule
+\end{tabular}

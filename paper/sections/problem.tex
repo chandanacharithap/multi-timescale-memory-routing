@@ -1,0 +1,14 @@
+\section{Problem Formulation}
+
+We model each episode as a question together with a timestamped state describing parametric confidence, retriever quality, memory state, recurrence likelihood, stability, volatility, contradiction risk, and recent action history. The router chooses one action from:
+\begin{center}
+\texttt{PARAM\_ONLY}, \texttt{READ\_MEMORY}, \texttt{RETRIEVE}, \texttt{WRITE\_MEMORY}, \texttt{FAST\_ADAPT}, \texttt{CONSOLIDATE}.
+\end{center}
+
+The implemented reward has the form
+\[
+r_t = q_t - c_t - f_t + \beta V_{\text{future}}(x_t, a_t),
+\]
+where $q_t$ is answer quality, $c_t$ captures latency and operation costs, $f_t$ penalizes forgetting risk, and $V_{\text{future}}$ rewards actions whose benefit is expected to recur later.
+
+The design goal is intentionally practical: use a single routing interface and one reward to compare operations that live on different time scales. \texttt{READ\_MEMORY} and \texttt{WRITE\_MEMORY} support reusable external memory. \texttt{FAST\_ADAPT} is a reversible temporary update. \texttt{CONSOLIDATE} is a guarded durable patch promotion. This action space is what lets the same controller address recurring memory use and updated knowledge within one framework.

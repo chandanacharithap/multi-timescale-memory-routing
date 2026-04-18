@@ -1,0 +1,23 @@
+\section{Benchmarks And Protocol}
+
+\subsection{Recurring-memory track: PopQA}
+
+We keep the frozen recurring-heavy 500-example PopQA slice from the preprint as the regime-analysis anchor, and add a broader two-model, three-seed PopQA run on a cached 100-example slice together with a calibrated-regression rerun. The PopQA question for this paper is narrow: can routing preserve retrieval-level quality while reducing repeated retrieval on recurring factual access patterns, and does the public-track calibration fix leave that regime unchanged?
+
+\subsection{Controlled update track: bundled freshness}
+
+We also keep the bundled deterministic FreshQA-style benchmark from the preprint. This benchmark is still useful because it contains the exact update types needed to exercise the full six-action controller under a documented protocol: stable updates, volatile updates, confirmations, rollback probes, and forgetting probes. We treat it as a bundled internal benchmark artifact rather than a public benchmark.
+
+\subsection{Public robustness track: FreshQA-derived weekly releases}
+
+To move beyond the bundled benchmark, we derive a public track from weekly public FreshQA releases between 2025-02-17 and 2025-04-07. We create two deterministic slices from the same public source set:
+\begin{itemize}[leftmargin=1.5em]
+\item \texttt{freshqa\_public\_main\_v2.jsonl}: a changed-question-heavy main slice,
+\item \texttt{freshqa\_public\_sequence\_v2.jsonl}: a sequence-stress slice with repeated updates and forgetting probes.
+\end{itemize}
+
+The derived episodes preserve weekly order, carry all answer aliases, derive stale answers only from immediately previous weekly answers, and mark rollback only on real answer reversion. This public track is the headline robustness check for the journal draft. We release a provenance bundle for it with exact source-file hashes, derivation-script hashes, output hashes, and row-level source-to-derived mappings.
+
+\subsection{Models, seeds, and baselines}
+
+The journal extensions use two Flan backbones, \texttt{google/flan-t5-small} and \texttt{google/flan-t5-base} \citep{longpre2023flan}, each with three seeded router runs. We also add \texttt{HuggingFaceTB/SmolLM2-360M-Instruct} as a small decoder-only cross-family robustness check on the public main slice. We keep the simple baselines from the preprint and also include the currently implemented literature-neighbor families: \texttt{self\_rag\_like}, \texttt{memllm\_like}, \texttt{wise\_like}, and \texttt{melo\_like}. These are approximate family baselines, not strict official reproductions.

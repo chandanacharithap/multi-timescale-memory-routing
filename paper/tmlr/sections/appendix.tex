@@ -1,0 +1,17 @@
+\section{Appendix}
+
+\subsection{Cross-family robustness on official FreshQA public runs}
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_freshqa_cross_family_official}
+\caption{Official FreshQA cross-family robustness. The retrieval-dominant boundary survives the extension from the primary FLAN matrix to Qwen2.5-1.5B-Instruct and SmolLM2-360M-Instruct.}
+\label{tab:appendix-public-cross-family}
+\end{table}
+
+The qualitative conclusion is unchanged across the four official models. Retrieval remains perfect on both public slices. On the main slice, calibration helps relative to the full router, but \texttt{router\_no\_v\_future} remains much closer to retrieval. On the sequence slice, suppressing delayed utility is again safer than the full router, and calibration is inconsistent.
+
+\subsection{Official support artifacts}
+
+The TMLR supplement includes the manual FreshQA audit bundle, the MQuAKE and UniEdit reliability notes, the official statistics bundle, the dataset manifest, and the claims-to-artifacts map. Every paper-facing number is copied from the frozen official surface only.

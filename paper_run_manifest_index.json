@@ -1,0 +1,405 @@
+{
+  "policy_version": "submission-integrity-v2",
+  "policy": {
+    "only_listed_artifacts_are_reportable": true,
+    "exclude_debug_synthetic_and_proxy_evidence": true,
+    "main_tmlr_tables_use_only_official_artifacts": true,
+    "banned_submission_tokens": [
+      "frozen-parametric",
+      "smoke",
+      "scaffold",
+      "demo",
+      "coverage_probe",
+      "self_rag_like",
+      "memllm_like",
+      "wise_like",
+      "melo_like",
+      "mello_like"
+    ]
+  },
+  "reportable_artifacts": [
+    {
+      "run_id": "freshqa_public_full_main_flan_small_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_flan_small_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_full_main_flan_base_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "popqa_recurring_flan_base_v1",
+      "benchmark": "popqa",
+      "artifact_root": "artifacts/tmlr_official/popqa_recurring_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_flan_small_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_flan_small_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_flan_base_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "official_leakage_audit_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_leakage_audit_manual_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "mquake_reliability_note_v1",
+      "benchmark": "mquake",
+      "artifact_root": "artifacts/tmlr_official/mquake_reliability_note_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "official_statistics_v1",
+      "benchmark": "multi",
+      "artifact_root": "artifacts/tmlr_official/official_statistics_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "mquake_flan_base_v1",
+      "benchmark": "mquake",
+      "artifact_root": "artifacts/tmlr_official/mquake_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "mquake_flan_small_v1",
+      "benchmark": "mquake",
+      "artifact_root": "artifacts/tmlr_official/mquake_flan_small_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_main_qwen_1p5b_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_qwen_1p5b_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_qwen_1p5b_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_qwen_1p5b_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_main_smollm2_360m_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_smollm2_360m_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_smollm2_360m_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_smollm2_360m_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "uniedit_reliability_note_v1",
+      "benchmark": "uniedit",
+      "artifact_root": "artifacts/tmlr_official/uniedit_reliability_note_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "uniedit_official_v1",
+      "benchmark": "uniedit",
+      "artifact_root": "artifacts/tmlr_official/uniedit_official_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    }
+  ],
+  "tmlr_official_reportable": [
+    {
+      "run_id": "freshqa_public_full_main_flan_small_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_flan_small_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_full_main_flan_base_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "popqa_recurring_flan_base_v1",
+      "benchmark": "popqa",
+      "artifact_root": "artifacts/tmlr_official/popqa_recurring_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_flan_small_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_flan_small_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_flan_base_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "official_leakage_audit_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_leakage_audit_manual_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "mquake_reliability_note_v1",
+      "benchmark": "mquake",
+      "artifact_root": "artifacts/tmlr_official/mquake_reliability_note_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "official_statistics_v1",
+      "benchmark": "multi",
+      "artifact_root": "artifacts/tmlr_official/official_statistics_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "mquake_flan_base_v1",
+      "benchmark": "mquake",
+      "artifact_root": "artifacts/tmlr_official/mquake_flan_base_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "mquake_flan_small_v1",
+      "benchmark": "mquake",
+      "artifact_root": "artifacts/tmlr_official/mquake_flan_small_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_main_qwen_1p5b_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_qwen_1p5b_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_qwen_1p5b_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_qwen_1p5b_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_main_smollm2_360m_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_main_smollm2_360m_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_smollm2_360m_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/tmlr_official/freshqa_public_sequence_smollm2_360m_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "uniedit_reliability_note_v1",
+      "benchmark": "uniedit",
+      "artifact_root": "artifacts/tmlr_official/uniedit_reliability_note_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "uniedit_official_v1",
+      "benchmark": "uniedit",
+      "artifact_root": "artifacts/tmlr_official/uniedit_official_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "tmlr"
+      ]
+    }
+  ],
+  "legacy_reportable_support": [
+    {
+      "run_id": "popqa_recurring_frozen_post_fix",
+      "benchmark": "popqa",
+      "artifact_root": "artifacts/popqa_500/post_fix",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshness_controlled_internal_v1",
+      "benchmark": "freshness",
+      "artifact_root": "artifacts/freshness_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "popqa_broad_calibrated_v1",
+      "benchmark": "popqa",
+      "artifact_root": "artifacts/journal_popqa_broad_100_calibrated_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_main_calibrated_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/journal_freshqa_main_calibrated_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_sequence_calibrated_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/journal_freshqa_sequence_calibrated_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_future_scale_sweep_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/journal_freshqa_future_scale_sweep_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_cross_family_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/journal_freshqa_main_cross_family_v1",
+      "status": "frozen_real_run",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_provenance_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/public_freshqa_provenance_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    },
+    {
+      "run_id": "freshqa_public_audit_v1",
+      "benchmark": "freshqa_public",
+      "artifact_root": "artifacts/public_freshqa_audit_v1",
+      "status": "frozen_support_bundle",
+      "paper_scope": [
+        "arxiv",
+        "tmlr"
+      ]
+    }
+  ],
+  "pending_required_runs": []
+}

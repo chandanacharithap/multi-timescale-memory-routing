@@ -1,0 +1,11 @@
+\begin{tabular}{p{1.8cm}p{1.8cm}p{1.9cm}p{1.0cm}p{1.4cm}p{3.1cm}}
+\toprule
+Benchmark & Regime & Source & Size & Models / seeds & Main question \\
+\midrule
+PopQA & Stable recurrence & Cached public PopQA slice & 500 & 1 / 5 & Can delayed utility replace repeated retrieval on recurring facts? \\
+FreshQA main & Volatile public knowledge & Weekly public releases & 796 & 4 / 5 & Do changing answers favor retrieval-dominant behavior? \\
+FreshQA sequence & Correction chains & Weekly public releases & 796 & 4 / 5 & Does the same boundary survive repeated corrections and forgetting probes? \\
+MQuAKE & Propagation & Princeton-NLP MQuAKE-CF-3k & 21000 & 2 / 5 & Do edited facts propagate to single-hop and multi-hop consequences? \\
+UniEdit & Broad editing & qizhou/UniEdit sampled test set & 3750 & 4 / 5 & Does the boundary survive a broad-domain editing benchmark? \\
+\bottomrule
+\end{tabular}

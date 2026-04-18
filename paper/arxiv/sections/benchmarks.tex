@@ -1,0 +1,48 @@
+\section{Benchmarks And Evaluation Protocol}
+
+The paper is written from a frozen official evidence surface with fixed datasets, model backbones, prompts, and scoring rules. The benchmark map below summarizes the benchmark set, and the cross-benchmark summary table that follows previews the empirical law that emerges from it.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\input{../shared/generated/tab_benchmark_map_tmlr}
+\caption{Benchmark map for the official benchmark surface. The headline evidence comes from frozen runs on PopQA, FreshQA public main and sequence, MQuAKE, and UniEdit.}
+\label{tab:benchmark-map}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\input{../shared/generated/tab_cross_benchmark_summary_official}
+\caption{Cross-benchmark summary from the frozen evidence surface. The key result is not broad router superiority; it is a boundary law showing where delayed utility helps and where retrieval should dominate.}
+\label{tab:cross-benchmark-summary}
+\end{table}
+
+The benchmark surface has four regimes:
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{PopQA recurring-memory:} a cached recurring-heavy slice that asks whether reusable support can substitute for repeated retrieval on stable facts;
+\item \textbf{FreshQA public main and sequence:} frozen public changing-answer evaluation derived from weekly releases, with the sequence slice stressing repeated corrections and forgetting probes;
+\item \textbf{MQuAKE:} propagation-heavy knowledge editing where the important question is whether an updated fact transfers to single-hop and multi-hop consequences;
+\item \textbf{UniEdit:} a broad editing benchmark used here as a high-coverage sanity check.
+\end{itemize}
+
+All runs use the same local practical model matrix:
+\begin{itemize}[leftmargin=1.5em]
+\item \texttt{google/flan-t5-small}
+\item \texttt{google/flan-t5-base}
+\item \texttt{Qwen/Qwen2.5-1.5B-Instruct}
+\item \texttt{HuggingFaceTB/SmolLM2-360M-Instruct}
+\end{itemize}
+
+Main tables use five seeds \texttt{0,1,2,3,4} and only the allowed baselines:
+\begin{itemize}[leftmargin=1.5em]
+\item \texttt{always\_retrieve}
+\item \texttt{retrieve\_gate} on FreshQA only
+\item \texttt{router}
+\item \texttt{router\_calibrated}
+\item \texttt{router\_no\_v\_future}
+\end{itemize}
+
+This baseline set is deliberately controlled rather than leaderboard-oriented. \texttt{always\_retrieve} and \texttt{retrieve\_gate} anchor retrieval-dominant fallback behavior, \texttt{router} and \texttt{router\_calibrated} test the same six-action controller with and without public delayed-utility rescaling, and \texttt{router\_no\_v\_future} isolates the delayed-utility term while keeping the rest of the action inventory fixed. Across compared policies, we keep the backbone fixed within each table, expose the same timestamp-constrained evidence, use the same alias and stale-answer rules, and score every mode with the same evaluator. The support layer adds a 100-case manual FreshQA audit together with MQuAKE and UniEdit reliability notes, all cited later in the paper.
+
+Some 95\% confidence intervals collapse to point intervals because all five official seeds produced identical aggregate scores for those settings, so the paired resampling layer had no observed variation to widen the interval.

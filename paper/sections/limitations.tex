@@ -1,0 +1,7 @@
+\section{Limitations And Benchmark Transparency}
+
+The strongest limitation is benchmark scope. The freshness experiment is currently a bundled local \texttt{FreshQA}-style snapshot rather than a public benchmark run. We therefore frame it as a deterministic bundled artifact, not as evidence on a standard external leaderboard.
+
+The second limitation is scale. The current freshness slice has fifteen episodes, which is enough to validate action usage and controller behavior but not enough to support broad claims about all update-heavy workloads. Likewise, the current temporary and durable update mechanisms are lightweight patch-based approximations rather than full adapter training or direct model editing.
+
+These constraints do not invalidate the empirical story, but they do bound it. The honest claim is that the controller works across two complementary frozen artifact settings: recurring memory use and updated knowledge. Replacing the bundled freshness snapshot with a public benchmark remains future work.

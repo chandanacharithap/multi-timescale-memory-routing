@@ -14,10 +14,7 @@ def build_demo_benchmark() -> list[EpisodeInput]:
             subject="France",
             relation="capital",
             domain="geography",
-            support_docs=[
-                SupportDoc("doc-fr-1", "France capital Paris geography", "Paris", "wiki", 1, trust=0.9, relevance=0.9),
-                SupportDoc("doc-fr-noise", "France cuisine bread travel", "Lyon", "noise", 1, trust=0.2, relevance=0.2),
-            ],
+            support_docs=[],
             parametric_answer="Paris",
             parametric_confidence=0.95,
             popularity_bin=0.9,
@@ -25,7 +22,7 @@ def build_demo_benchmark() -> list[EpisodeInput]:
             stability_hint=0.95,
             volatility_hint=0.05,
             contradiction_hint=0.0,
-            metadata={"source_support_count": 2, "domain_change_rate": 0.05},
+            metadata={"source_support_count": 0, "domain_change_rate": 0.05, "disable_retrieval": True},
         ),
         EpisodeInput(
             episode_id="fresh-1",

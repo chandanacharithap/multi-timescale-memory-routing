@@ -1,0 +1,17 @@
+\section{MQuAKE: A Retrieval-Dominant Propagation Boundary}
+
+MQuAKE tests whether updated facts propagate correctly to direct edits, single-hop consequences, and multi-hop consequences \citep{zhong2023mquake}. In our frozen official runs, this regime is also retrieval-dominant.
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_mquake_official}
+\caption{Official MQuAKE results. Retrieval remains strongest on overall quality, direct edit success, and multi-hop consequences. Suppressing delayed utility improves on the full router but still does not overtake retrieval.}
+\label{tab:mquake-main}
+\end{table}
+
+On both FLAN backbones, \texttt{always\_retrieve} reaches 0.551 overall quality. The full router reaches only 0.284 on FLAN-T5-Base and 0.276 on FLAN-T5-Small, and the calibrated router is identical. Suppressing delayed utility improves overall quality to 0.338 and 0.319, but that still remains far below retrieval.
+
+The benchmark-specific metrics reinforce the same interpretation. Retrieval reaches edit success 0.214, single-hop accuracy 1.000, and multi-hop accuracy 0.214 on both FLAN backbones. The full router lowers all three. The \texttt{router\_no\_v\_future} variant increases single-hop accuracy to 0.643 on FLAN-T5-Base and 0.705 on FLAN-T5-Small, but it does so by sacrificing direct edit success and especially multi-hop accuracy, which falls to 0.093 and 0.031. Forgetting also rises relative to retrieval. Paired sign tests again show retrieval dominating with effectively zero \(p\)-values in both official FLAN bundles.
+
+The MQuAKE lesson is therefore negative but precise: delayed utility does not transfer safely from stable recurrence to propagation-heavy edits. Even removing delayed utility entirely is only a partial repair, because the strongest safe policy in this regime is still retrieval-dominant.

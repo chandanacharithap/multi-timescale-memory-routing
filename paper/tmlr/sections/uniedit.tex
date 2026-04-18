@@ -1,0 +1,15 @@
+\section{UniEdit: A Near-Ceiling Sanity Check}
+
+UniEdit broadens the benchmark surface beyond PopQA, FreshQA, and MQuAKE \citep{chen2025uniedit}. In our frozen official sample, however, it is almost perfectly solved by every official policy and therefore functions mainly as a sanity check.
+
+\begin{table}[h]
+\centering
+\small
+\input{../shared/generated/tab_uniedit_official}
+\caption{Official UniEdit summary. All policies are near ceiling, so the benchmark is useful for breadth but largely nondiagnostic for router superiority in this setup.}
+\label{tab:uniedit-main}
+\end{table}
+
+Across all four official models, retrieval-only is exactly 1.000 quality. The router and calibrated router are effectively tied at 0.999, and \texttt{router\_no\_v\_future} ranges from 0.998 to 0.999. The benchmark-specific metrics tell the same story: edit success, generality, and locality are all between 0.9976 and 1.0000.
+
+Because the benchmark is so close to saturation, some pairwise differences are statistically detectable but practically tiny. We therefore treat UniEdit as a broad-domain sanity check rather than as a source of strong positive or negative evidence about delayed utility.

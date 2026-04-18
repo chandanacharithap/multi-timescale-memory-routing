@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+  <rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+  <text x="480" y="32" text-anchor="middle" font-size="22" fill="#111827">Official FreshQA Public Boundary Results</text>
+  <text x="480" y="58" text-anchor="middle" font-size="14" fill="#6b7280">Always-retrieve stays best; no delayed utility is more reliable than soft calibration</text>
+  <line x1="80" y1="430" x2="910" y2="430" stroke="#111827"/>
+  <line x1="80" y1="110" x2="80" y2="430" stroke="#111827"/>
+  <text x="72" y="435" text-anchor="end" font-size="12" fill="#6b7280">0.0</text>
+  <text x="72" y="355" text-anchor="end" font-size="12" fill="#6b7280">0.25</text>
+  <text x="72" y="275" text-anchor="end" font-size="12" fill="#6b7280">0.5</text>
+  <text x="72" y="195" text-anchor="end" font-size="12" fill="#6b7280">0.75</text>
+  <text x="72" y="115" text-anchor="end" font-size="12" fill="#6b7280">1.0</text>
+  <rect x="110" y="118" width="18" height="312" fill="#111827"/>
+  <rect x="132" y="237.8" width="18" height="192.2" fill="#d97706"/>
+  <rect x="154" y="213.5" width="18" height="216.5" fill="#0f766e"/>
+  <rect x="176" y="122.7" width="18" height="307.3" fill="#2563eb"/>
+  <text x="152" y="455" text-anchor="middle" font-size="13" fill="#111827">Main B</text>
+  <rect x="290" y="118" width="18" height="312" fill="#111827"/>
+  <rect x="312" y="239.1" width="18" height="190.9" fill="#d97706"/>
+  <rect x="334" y="182.3" width="18" height="247.7" fill="#0f766e"/>
+  <rect x="356" y="123.0" width="18" height="307.0" fill="#2563eb"/>
+  <text x="332" y="455" text-anchor="middle" font-size="13" fill="#111827">Main S</text>
+  <rect x="470" y="118" width="18" height="312" fill="#111827"/>
+  <rect x="492" y="174.5" width="18" height="255.5" fill="#d97706"/>
+  <rect x="514" y="203.8" width="18" height="226.2" fill="#0f766e"/>
+  <rect x="536" y="123.0" width="18" height="307.0" fill="#2563eb"/>
+  <text x="512" y="455" text-anchor="middle" font-size="13" fill="#111827">Seq B</text>
+  <rect x="650" y="118" width="18" height="312" fill="#111827"/>
+  <rect x="672" y="179.8" width="18" height="250.2" fill="#d97706"/>
+  <rect x="694" y="204.1" width="18" height="225.9" fill="#0f766e"/>
+  <rect x="716" y="123.6" width="18" height="306.4" fill="#2563eb"/>
+  <text x="692" y="455" text-anchor="middle" font-size="13" fill="#111827">Seq S</text>
+  <rect x="760" y="120" width="14" height="14" fill="#111827"/>
+  <text x="782" y="132" font-size="12" fill="#111827">always\_retrieve</text>
+  <rect x="760" y="148" width="14" height="14" fill="#d97706"/>
+  <text x="782" y="160" font-size="12" fill="#111827">router</text>
+  <rect x="760" y="176" width="14" height="14" fill="#0f766e"/>
+  <text x="782" y="188" font-size="12" fill="#111827">router\_calibrated</text>
+  <rect x="760" y="204" width="14" height="14" fill="#2563eb"/>
+  <text x="782" y="216" font-size="12" fill="#111827">router\_no\_v\_future</text>
+</svg>

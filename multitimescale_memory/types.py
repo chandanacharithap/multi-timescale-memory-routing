@@ -53,6 +53,7 @@ class RouterFeatures:
     model_confidence: float
     retrieval_quality_estimate: float
     memory_hit_score: float
+    memory_alignment_score: float
     recurrence_estimate: float
     stability_score: float
     volatility_score: float
@@ -63,6 +64,11 @@ class RouterFeatures:
     popularity_bin: float
     recent_action_repeat: float
     forgetting_risk: float
+    question_seen_before: float = 0.0
+    answer_changed_since_last_seen: float = 0.0
+    weeks_since_last_change: float = 0.0
+    has_aliases: float = 0.0
+    prior_stale_answer_available: float = 0.0
 
     def to_vector(self) -> list[float]:
         return [
@@ -70,6 +76,7 @@ class RouterFeatures:
             self.model_confidence,
             self.retrieval_quality_estimate,
             self.memory_hit_score,
+            self.memory_alignment_score,
             self.recurrence_estimate,
             self.stability_score,
             self.volatility_score,
@@ -80,6 +87,11 @@ class RouterFeatures:
             self.popularity_bin,
             self.recent_action_repeat,
             self.forgetting_risk,
+            self.question_seen_before,
+            self.answer_changed_since_last_seen,
+            self.weeks_since_last_change,
+            self.has_aliases,
+            self.prior_stale_answer_available,
         ]
 
 
@@ -139,13 +151,14 @@ class OperationResult:
     touched_patch_ids: list[str]
     latency: float
     side_effects: list[str]
-    metrics: dict[str, float]
+    metrics: dict[str, Any]
 
 
 @dataclass(slots=True)
 class RunTrace:
     episode_id: str
     dataset_id: str
+    question: str
     subject: str
     relation: str
     gold_answer: str
@@ -159,7 +172,79 @@ class RunTrace:
     touched_memory_ids: list[str]
     touched_patch_ids: list[str]
     side_effects: list[str]
-    metrics: dict[str, float]
+    metrics: dict[str, Any]
 
     def to_json_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+@dataclass(slots=True)
+class ResultRow:
+    mode: str
+    answer_quality: float
+    recurring_quality: float
+    non_recurring_quality: float
+    latency: float
+    retrieval_calls: int
+    memory_reads: int
+    memory_writes: int
+    adaptation_count: int
+    recurring_retrieval_calls: float
+    recurring_memory_reads: float
+    recurring_memory_writes: float
+    action_distribution: dict[str, int]
+    extra_metrics: dict[str, float] = field(default_factory=dict)
+
+
+@dataclass(slots=True)
+class MetricSummary:
+    mean: float
+    std: float
+    min: float
+    max: float
+    ci95_low: float
+    ci95_high: float
+    count: int
+
+
+@dataclass(slots=True)
+class JournalRunRow:
+    benchmark: str
+    model_name: str
+    seed: int
+    mode: str
+    answer_quality: float
+    recurring_quality: float
+    non_recurring_quality: float
+    latency: float
+    retrieval_calls: float
+    memory_reads: float
+    memory_writes: float
+    adaptation_count: float
+    stale_answer_rate: float
+    consolidation_count: float
+    rollback_count: float
+    forgetting_delta: float
+    average_reward: float
+    action_distribution: dict[str, int] = field(default_factory=dict)
+    extra_metrics: dict[str, float] = field(default_factory=dict)
+
+
+@dataclass(slots=True)
+class JournalAggregateRow:
+    benchmark: str
+    model_name: str
+    mode: str
+    answer_quality: MetricSummary
+    recurring_quality: MetricSummary
+    non_recurring_quality: MetricSummary
+    latency: MetricSummary
+    retrieval_calls: MetricSummary
+    memory_reads: MetricSummary
+    memory_writes: MetricSummary
+    adaptation_count: MetricSummary
+    stale_answer_rate: MetricSummary
+    consolidation_count: MetricSummary
+    rollback_count: MetricSummary
+    forgetting_delta: MetricSummary
+    average_reward: MetricSummary

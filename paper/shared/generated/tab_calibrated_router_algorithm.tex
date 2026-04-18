@@ -1,0 +1,10 @@
+\begin{tabular}{p{0.97\linewidth}}
+\toprule
+\textbf{Inputs:} base action scores, delayed-utility term $V_{\text{future}}$, and public-track features: question seen before, answer changed since last seen, weeks since last change, alias availability, stale-answer availability, and confirmation count. \\
+\textbf{1. Detect unstable public cases.} Mark the example as unstable when the answer changed recently, recurrence evidence is weak, contradiction risk is high, or confirmations remain sparse. \\
+\textbf{2. Gate delayed utility.} If the case is unstable, strongly down-weight or suppress $V_{\text{future}}$ for memory write, temporary adaptation, and durable consolidation; otherwise keep the original delayed-utility contribution. \\
+\textbf{3. Preserve recurring stable regimes.} Leave delayed utility active for recurring stable facts, confirmed reusable memory, and stable bundled-update confirmations so that the recurring-memory and controlled-update benefits are not removed. \\
+\textbf{4. Recompute valid scores.} Re-score the six actions with the calibrated delayed-utility term and re-apply the same action masks used by the base controller. \\
+\textbf{5. Execute the calibrated choice.} Select the best valid action, then record the same answer, cost, stale-answer, rollback, and forgetting metrics as in the base router. \\
+\bottomrule
+\end{tabular}

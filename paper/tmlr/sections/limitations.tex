@@ -1,0 +1,21 @@
+\section{Limitations And Discussion}
+
+This paper makes a bounded claim. That is a limitation, but it is also the clearest honest reading of the frozen evidence.
+
+\paragraph{The router is not broadly best.}
+Retrieval dominates every official FreshQA run, both official MQuAKE runs, and the official UniEdit runs. The positive claim is therefore narrow: delayed utility helps in stable recurring-memory settings, not across all regimes.
+
+\paragraph{Calibration is limited.}
+On FreshQA public main, calibration partially repairs the full router. On FreshQA public sequence, calibration is worse than the full router on the primary FLAN matrix. We therefore do not present calibration as a general repair.
+
+\paragraph{The public trust story is bounded.}
+The manual FreshQA audit found no direct leakage-risk cases, but 76 of 100 audited rows remain suspect. The public benchmark is therefore usable and auditable, but not fully cleared of benchmark-sensitivity concerns.
+
+\paragraph{UniEdit is broad but nondiagnostic here.}
+The official UniEdit run is near ceiling for all policies. That is useful as a sanity check, but it cannot serve as strong evidence that the router wins or loses meaningfully on broad editing.
+
+\paragraph{Deferred comparisons.}
+We do not claim results for Qwen2.5-7B-Instruct, faithful MeLLo, or a faithful external editing baseline on UniEdit. Those are important future comparisons, but they are not part of the frozen local evidence surface used here.
+
+\paragraph{Empirical law.}
+Taken together, the official results support a simple law rather than a universal-win method claim: delayed utility helps when recurrence is stable and support can be reused safely, but volatile public answers and propagation-heavy edits are better served by retrieval-dominant behavior.
